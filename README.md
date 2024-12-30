@@ -91,50 +91,10 @@ Prototype and build IoT systems without setting up servers or developing web sof
  
 # PROGRAM:
 
-#include <WiFi.h>
-#include "ThingSpeak.h"
-#define ldr_pin 34
-char ssid[] = "Akshay";
-char pass[] = "Loid D Ackerman :)";
-int keyIndex = 0;
-WiFiClient client;
-unsigned long myChannelNumber = 2788340;
-const int ChannelField = 1;
-const char * myWriteAPIKey = "Y2YROF4BS19UCV3I";
-int ldrValue = 0;
-int lightPercentage = 0;
-const int darkValue = 4095;
-const int brightValue = 0;
-void setup()
-{
-Serial.begin(115200);
-pinMode(ldr_pin, INPUT);
-WiFi.mode(WIFI_STA);
-ThingSpeak.begin(client);
-}
-void loop()
-{
-if(WiFi.status() != WL_CONNECTED)
-{
-Serial.print("Attempting to connect to SSID: ");
-while(WiFi.status() != WL_CONNECTED)
-{
-WiFi.begin(ssid, pass);
-Serial.print(".");
-delay(5000);
-}
-Serial.println("\nConnected.");
-}
-int ldrValue= analogRead(ldr_pin);
-lightPercentage = map(ldrValue, darkValue, brightValue, 0, 100);
-lightPercentage = constrain(lightPercentage, 0, 100);
-Serial.println("Intensity=");
-Serial.println(lightPercentage);
-Serial.println("%");
-ThingSpeak.writeField(myChannelNumber, ChannelField, lightPercentage,
-myWriteAPIKey);
-delay(5000);
-}
+![Screenshot 2024-12-30 211437](https://github.com/user-attachments/assets/c0b54e9e-c696-43ff-9c89-586049b63fc7)
+
+![Screenshot 2024-12-30 211454](https://github.com/user-attachments/assets/7541c661-00ca-4eb2-8b12-175743ff1fa4)
+
 
 # CIRCUIT DIAGRAM:
 
