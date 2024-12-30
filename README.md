@@ -107,7 +107,6 @@ Prototype and build IoT systems without setting up servers or developing web sof
 ![10](https://github.com/user-attachments/assets/f44b58b6-5601-4917-9568-85e2b8256bf3)
 
 # RESULT:
-
 Thus the light intensity values are updated in the Thing speak cloud using ESP32 controller.
 
 
